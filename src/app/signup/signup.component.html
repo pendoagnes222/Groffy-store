@@ -1,0 +1,39 @@
+<div fxFlex="100" fxLayout="column">
+    
+    <div fxLayout="column" fxFlex fxLayoutAlign="center center" class="ctn">
+        <p>Create an Account</p> 
+        
+      <form fxLayout="column" novalidate #signupForm="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput placeholder="First name" type="text" [(ngModel)]="user.firstname" name="firstname"  #firstname="ngModel" required>
+            <mat-error *ngIf="firstname.errors?.['required']">First name is required</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <input matInput placeholder="Last name" type="text" [(ngModel)]="user.lastname" name="lastname"  #lastname="ngModel" required>
+            <mat-error *ngIf="lastname.errors?.['required']">Last name is required</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <textarea matInput placeholder="Address" [(ngModel)]="user.address" name="address" #address="ngModel" required rows=6></textarea>
+            <mat-error *ngIf="address.errors?.['required']">Address is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username"  #username="ngModel" required>
+              <mat-error *ngIf="username.errors?.['required']">Username is required</mat-error>
+            </mat-form-field>
+            
+          <mat-form-field>
+              <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password" #password="ngModel" required>
+              <mat-error *ngIf="password.errors?.['required']">Password is required</mat-error>
+            </mat-form-field>
+            
+          <button type="submit" mat-button [disabled]="signupForm.form.invalid">Create Account</button>
+            <br>
+          <p>Have and account? <a routerLink="/login">Login </a>instead</p>
+        </form>
+    </div>
+
+    
+  </div>

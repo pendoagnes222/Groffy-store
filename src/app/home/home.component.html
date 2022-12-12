@@ -1,0 +1,126 @@
+<div fxLayout="column" fxFlex> 
+    <div fxFlex class="container">
+        <img style="width: 100%; height: 100%; display: block;" src="../../assets/images/cover2.jpeg" alt="cover"> 
+        <div class="overlay">
+            <p class="intro">Welcome to Groffy store</p>
+            <p class="test">We have all you need </p>
+        </div>
+    </div>    
+    <div fxFlex class="ctn">
+        <h3>Categories </h3>
+        <mat-grid-list class="category" [rowHeight]="rowHeight" gutterSize="35px" [cols]="breakpoint">
+
+            <mat-grid-tile routerLink="/phones/iphones">
+                <mat-card class="card" style="height: 80%; width: 100%; background-image: url('../../assets/images/images (64).jpeg'); background-repeat: no-repeat; background-size: cover;">
+                    
+                </mat-card>
+                <mat-grid-tile-footer>
+                  iPhones
+                </mat-grid-tile-footer>  
+            </mat-grid-tile>
+            <mat-grid-tile routerLink="/phones/android">
+                <mat-card class="card" style="height: 80%; width: 100%; background-image: url('../../assets/images/images (67).jpeg'); background-repeat: no-repeat; background-size: cover;">
+                    
+                </mat-card>
+                <mat-grid-tile-footer>
+                    Android Phones
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+
+            <mat-grid-tile routerLink="/men-fashion">
+                <mat-card class="card" style="height: 80%; width: 100%; background-image: url('../../assets/images/men-fashion.jpeg'); background-repeat: no-repeat; background-size: cover;">
+                    
+                </mat-card>
+              <mat-grid-tile-footer>
+                  Men's Fashion
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
+
+            <mat-grid-tile routerLink="/women-fashion">
+                <mat-card class="card" style="height: 80%; width: 100%; background-image: url('../../assets/images/female.jpeg'); background-repeat: no-repeat; background-size: cover;">
+                    
+                </mat-card>
+              <mat-grid-tile-footer>
+                  Women's Fashion
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
+
+            <mat-grid-tile routerLink="/women-fashion/bags">
+                <mat-card class="card" style="height: 80%; width: 100%; background-image: url('../../assets/images/10.jpg'); background-repeat: no-repeat; background-size: cover;">
+                    
+                </mat-card>
+              <mat-grid-tile-footer>
+                  Bags
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
+
+            <mat-grid-tile routerLink="/men-fashion/shoes">
+                <mat-card class="card" style="height: 80%; width: 100%; background-image: url('../../assets/images/images (70).jpeg'); background-repeat: no-repeat; background-size: cover;">
+                    
+                </mat-card>
+              <mat-grid-tile-footer>
+                  Sneakers
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </mat-grid-list>
+        
+        
+        <div class="services">
+            <h1 style="font-size: 50px; text-align: center;">
+                OUR SERVICES
+            </h1>
+            <mat-grid-list [cols]="cols" rowHeight="200px">
+                <mat-grid-tile>
+                    <mat-card class="mat-elevation-z0" style="text-align: center; background-color: inherit;">
+                        <div>
+                            <img style="width: 70px; height: 70px;" src="../../assets/images/images (73).jpeg" alt="delivery" mat-card-avatar>
+                        </div>
+                    <mat-card-footer>
+                        <p class="p">Free Delivery</p>
+                        <p>To any Location</p>
+                    </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-card class="mat-elevation-z0" style="text-align: center; background-color: inherit;">
+                        <div>
+                            <img style="width: 70px; height: 70px;" src="../../assets/images/card.png" alt="delivery" mat-card-avatar>
+                        </div>
+                    <mat-card-footer>
+                        <p class="p">Easy Payment Method</p>
+                        <p>Fast and Secure</p>
+                    </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-card class="mat-elevation-z0" style="text-align: center; background-color: inherit;">
+                        <div>
+                            <img style="width: 70px; height: 70px;" src="../../assets/images/images (3).png" alt="products" mat-card-avatar>
+                        </div>
+                    <mat-card-footer>
+                        <p class="p">Quality Products</p>
+                        <p>What you see is what you get</p>
+                    </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <mat-card class="mat-elevation-z0" style="text-align: center; background-color: inherit;">
+                        <div>
+                            <img style="width: 70px; height: 70px;" src="../../assets/images/download (36).jpeg" alt="call us" mat-card-avatar>
+                        </div>
+                    <mat-card-footer>
+                        <p class="p">Need Help?</p>
+                        <p>Contact Us on any of our social media platforms below</p>
+                    </mat-card-footer>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            
+        </div>
+        
+    </div>
+</div>

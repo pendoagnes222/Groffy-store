@@ -1,0 +1,52 @@
+<div fxLayout="row wrap" fxLayoutGap="20px" fxFlex class="ctn"> 
+    <div fxFlex="50" fxFlex.lt-md="100">
+        <mat-card>
+            <img mat-card-image src="{{BaseURL + product.image}}">
+        </mat-card>
+        <div *ngIf="!product" fxLayoutAlign="center center" fxFlex>
+          <mat-spinner color="accent"></mat-spinner>
+       </div> 
+    </div>
+
+    <div fxLayout="column" fxFlex="40">
+        <mat-list  fxLayout="column">
+          <h3>Comments</h3>
+          <mat-list-item fxFlex *ngFor="let comment of product.comments">
+            <h4 matLine> {{comment.comment}} </h4>
+            <p matLine> {{comment.rating}} Stars</p>
+            <p matLine>
+              <span> -- {{comment.author.username}} {{comment.createdAt | date }} </span>
+            </p>
+          </mat-list-item>
+          <div *ngIf="!product" fxLayoutAlign="center center" fxFlex>
+            <mat-spinner color="accent"></mat-spinner>
+         </div>
+        </mat-list>
+        <form fxFlex novalidate [formGroup]="commentForm" #cform="ngForm" (ngSubmit)="onSubmit()">
+          <p>
+            <mat-slider min="1" max="5" step="1" thumbLabel tickInterval="1" name="rating" formControlName="rating"></mat-slider>
+            <br>
+            <mat-form-field class="full-width">
+              <textarea matInput formControlName="comment" placeholder="Your Comment" rows=6></textarea>
+              <mat-error *ngIf="formErrors.comment">{{formErrors.comment}}</mat-error>
+            </mat-form-field>
+          </p>
+          <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+        </form>
+          
+      </div>
+      <mat-card fxFlex="100">
+        <mat-list>
+            <mat-list-item>
+                <img mat-list-avatar src="{{BaseURL + product.image}}">
+                <p mat-line> {{product.name}}</p>
+                <p mat-line> {{product.description}}</p>
+                <p mat-line> &#65284;{{product.price}}</p>
+            </mat-list-item>
+        </mat-list>
+        <div>
+            <button class="button" (click)="addToCart(product);"  mat-button> Add to cart</button>
+        
+        </div>            
+    </mat-card>
+    </div>  

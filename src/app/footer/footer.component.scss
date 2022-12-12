@@ -1,0 +1,21 @@
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$background-maroon: #800000;
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.footer{
+    background-color: #3c3744;
+    color: floralwhite;
+    @include zero-margin(20px, 0px);
+}
+
+.btn-facebook {color:#fff!important; background-color:#3b5998!important;}
+.btn-linkedin{color:#fff!important;background-color:#007bb6!important;}
+.btn-whatsapp{color: #fff!important;background-color: rgb(35, 209, 35)!important;}
+.btn-mail{color:#fff!important;background-color: red!important;}

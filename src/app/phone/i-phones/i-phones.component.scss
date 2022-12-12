@@ -1,0 +1,40 @@
+mat-card {
+    background-color: white;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px; 
+    
+}
+
+mat-grid-tile {
+    filter: drop-shadow( 0px 0px 2px gray );
+    
+}  
+
+mat-card-content {
+    height: 98px;
+
+}
+
+button {
+    filter: drop-shadow( 0px 0px 2px gray );
+    color: white;
+    background-color: #003049;
+    font-weight: bold;
+    border: none;
+    height: 35px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.desc {
+    text-align: left;
+    margin: 10px;
+}
+ 
+    
+    

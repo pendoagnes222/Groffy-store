@@ -1,0 +1,47 @@
+<div fxFlex fxLayout="column"
+            
+fxLayoutAlign="center">
+    
+    <div class="ctn">
+        <h3>iPhones</h3>
+        
+         <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+            <mat-grid-tile appHighlight  *ngFor="let phone of featuredIPhones">
+                 <mat-card style="height: 80%; width: 90%">
+                    <div style="height: 70%" [routerLink]="['/productdetail', phone._id]">
+                        <img mat-card-sm-image style="max-height: 250px;" src="{{BaseURL + phone.image}}" alt={{phone.name}}>
+                    </div>
+                    <mat-card-content>
+                        <p>{{phone.name}}</p>
+                    </mat-card-content>
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!featuredIPhones" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list> 
+
+       <h3><a routerLink="/phones/iphones">See All</a></h3>
+        <hr>
+        <h3>Android Phones</h3>
+        
+         <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+            <mat-grid-tile appHighlight  *ngFor="let phone of featuredAndroidPhones">
+                 <mat-card style="height: 80%; width: 90%">
+                    <div style="height: 70%" [routerLink]="['/productdetail', phone._id]">
+                        <img mat-card-sm-image style="max-height: 250px;" src="{{BaseURL + phone.image}}" alt={{phone.name}}>
+                    </div>
+                    <mat-card-content>
+                        <p>{{phone.name}}</p>
+                    </mat-card-content>
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!featuredAndroidPhones" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list> 
+           
+        <h4><a routerLink="/phones/android">See All</a></h4>
+    </div>
+    
+</div>

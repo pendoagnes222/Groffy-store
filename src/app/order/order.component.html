@@ -1,0 +1,36 @@
+<div fxLayout="column" fxFlex class="ctn">
+    <h1 style="font-size: 30px; text-align: center;">
+        YOUR ORDERS
+    </h1>
+    <div fxFlex>
+        <mat-card *ngFor="let order of orders">
+            <p> Order id {{order._id}}</p>
+            
+            <div fxLayout="row" *ngFor="let orderItem of order.cart">
+                <img mat-card-md-image src='{{BaseURL + orderItem.image}}' alt="phone">
+            <mat-card-content style="margin-left: 30px;">
+                <mat-list>
+                    <mat-list-item> {{ orderItem.name }} </mat-list-item>
+                    <mat-list-item>Order #{{ order.paymentId }} </mat-list-item>
+                    <mat-list-item> &#x20A6;{{ orderItem.price }} </mat-list-item>
+                    <mat-list-item>quantity: {{ orderItem.quantity }} </mat-list-item>
+
+                    <mat-list-item style="margin-top: 20px; background-color: blue;
+                                          color: white;">
+                        {{order.status}} 
+                    </mat-list-item>
+                    <div *ngIf="!orders" fxLayoutAlign="center center" fxFlex>
+                        <mat-spinner color="accent"></mat-spinner>
+                     </div>
+                </mat-list>
+
+            </mat-card-content>
+            
+        </div>
+        </mat-card>
+    </div>
+    <div style="margin-bottom: 100px; margin-top: 50px; margin-left: auto; margin-right: auto;" *ngIf="orders.length == 0">
+        <img style="width: 300px" src="../../assets/images/no-orders-here.jpg" alt="no orders">
+        
+    </div>
+</div>

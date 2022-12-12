@@ -1,0 +1,43 @@
+<div fxFlex fxLayout="column"
+            
+fxLayoutAlign="center">
+<div *ngIf="!iPhones" fxLayoutAlign="center center" fxFlex>
+    <mat-spinner color="accent"></mat-spinner>
+ </div>
+    <div class="ctn">
+        <h1 style="font-size: 30px; text-align: center;">
+            iPHONES
+        </h1>
+
+         <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+            <mat-grid-tile appHighlight  *ngFor="let phone of iPhones  | 
+            paginate: { itemsPerPage: 12,
+            currentPage: page,
+            totalItems: length }">
+                 <mat-card style="height: 80%; width: 65%">
+                    <div style="height: 80%" [routerLink]="['/productdetail', phone._id]">
+                        <img mat-card-image style="max-height: 400px;" src="{{BaseURL + phone.image}}" alt={{phone.name}}>
+                    <mat-card-content  *ngIf="!opened">
+                        <div class="desc">
+                            <p matline class="name">{{phone.name | uppercase}}</p>
+                            <p matline>{{phone.description}}</p>
+                            <p matline>&#x20A6;{{phone.price}}</p>
+                        </div>
+                    </mat-card-content>
+                    </div>
+                    <mat-card-actions>
+                        <button class="button" (click)="addToCart(phone);"  mat-button fxFlex="grow"> Add to cart</button>
+                        
+                    </mat-card-actions>
+                    
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!iPhones" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list>   
+         
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    
+</div>

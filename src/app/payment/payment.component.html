@@ -1,0 +1,18 @@
+<flutterwave-make-payment style="margin-bottom: 200px;  
+                                 margin-top: 100px; 
+                                 margin-left: auto; 
+                                 margin-right: auto;
+                                 "
+                [public_key]="publicKey"
+                [amount]="total"
+                currency='NGN'
+                payment_options="card"
+                redirect_url=""
+                text="Pay Now"
+                [customer]="customerDetails"
+                [customizations]="customizations"
+                [meta]="meta"
+                [tx_ref]="generateReference()"
+                (callback)="makePaymentCallback($event)"
+                (close)="closedPaymentModal()">
+            </flutterwave-make-payment>

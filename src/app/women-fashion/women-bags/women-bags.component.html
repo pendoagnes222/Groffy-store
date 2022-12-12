@@ -1,0 +1,40 @@
+<div fxFlex fxLayout="column"
+            
+fxLayoutAlign="center">
+
+    <div class="ctn">
+        <h3>Women's Bags</h3>
+        <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+        <mat-grid-tile appHighlight  *ngFor="let bag of bags | 
+                                                paginate: { itemsPerPage: 12,
+                                                currentPage: page,
+                                                totalItems: length }">
+                 <mat-card style="height: 80%; width: 65%">
+                    <div style="height: 80%;"  [routerLink]="['/productdetail', bag._id]">
+                        <img mat-card-image style="max-height: 400px;" src="{{BaseURL + bag.image}}" alt={{bag.name}}>
+                    <mat-card-content  *ngIf="!opened">
+                        <div class="desc">
+                            <p matline class="name">{{bag.name | uppercase}}</p>
+                            <p matline>{{bag.description}}</p>
+                            
+                            <p matline>&#x20A6;{{bag.price}}</p>
+                        </div>
+                    </mat-card-content>
+                    
+                    </div>
+                    <mat-card-actions>
+                        <button  class="button" (click)="addToCart(bag);"  mat-button fxFlex="grow"> Add to cart</button>
+                        
+                    </mat-card-actions>
+                    
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!bags" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list>    
+
+    </div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+

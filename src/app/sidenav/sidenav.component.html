@@ -1,0 +1,40 @@
+<div class="ctn">
+    
+    <div *ngIf="!opened">
+        <h2>CS <i class="fas fa-crown fa-lg"></i></h2>
+    </div>
+    <hr *ngIf="!opened">
+    <div>
+        <h3>Our Categories</h3>
+        <mat-tree
+        [dataSource]='dataSource'
+        [treeControl]="treeControl">
+            <mat-tree-node routerLink='{{node.url}}'
+            *matTreeNodeDef="let node of TREE_DATA" matTreeNodePadding>
+            <button mat-button><i class='{{node.icon}}' style="width: 25px;"></i>{{node.name}}</button>    
+            </mat-tree-node>
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" 
+                            matTreeNodePadding routerLink='{{node.url}}'>
+                            <button style="background-color: white; border: none;" 
+                            class='{{treeControl.isExpanded(node) ? "fas fa-chevron-up" : "fas fa-chevron-down"}}'
+                            matTreeNodeToggle>       
+                    </button>
+                <button style="width: 150px; text-align: left;" mat-button>{{node.name}}</button>              
+            </mat-tree-node>
+        </mat-tree>
+            
+        
+    </div>
+    <hr>
+    <div>
+        <h4>
+            <a routerLink="/home"> Home Page</a>
+        </h4>
+    </div>
+    <div>
+        <h4>
+            <a routerLink="/contactus"> Contact Us</a>
+        </h4>
+    </div>
+
+</div>

@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.footer{
+    @include zero-margin(20px, 0px);
+}
+
+
+body,html {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+
+}
+.ctn {
+    padding: 20px;
+}
+
+pagination-controls {
+    background-color: white;
+}
+
+.side-nav {
+    width: 270px;
+    box-shadow: ( 3px 0px 2px gray );
+
+}
+.flex-spacer {
+  flex: 1 1 auto;
+}
+.header {
+    background: #003049;
+    height: 120px;
+    color: white;
+    
+}
+
+.snackbar {
+    background-color: black;
+    color: white;
+    display: block;
+    
+    width: 19em !important;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+}
+.snackbar span {
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+}
+
+.highlight {
+    filter: drop-shadow( 0px 0px 2px gray);
+    z-index: 1;
+    transform: scale(1.02);
+}
+.divider {
+ color: gray; 
+   
+}
+
+.container {
+    position: relative;
+    height: 300px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    opacity: 1;
+    color: white;
+    text-align: center;
+    height: 100%;
+    margin-top: 10px;
+}

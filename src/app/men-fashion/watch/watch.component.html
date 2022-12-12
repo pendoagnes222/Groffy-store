@@ -1,0 +1,43 @@
+<div fxFlex fxLayout="column"
+            
+fxLayoutAlign="center">
+
+    <div class="ctn">
+        <h1 style="font-size: 30px; text-align: center;">
+            MEN'S WATCHES
+        </h1>
+        
+        <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+        <mat-grid-tile appHighlight  *ngFor="let watch of watches | 
+                                                paginate: { itemsPerPage: 12,
+                                                currentPage: page,
+                                                totalItems: length }">
+                 <mat-card style="height: 80%; width: 65%">
+                    <div style="height: 80%;"  [routerLink]="['/productdetail', watch._id]">
+                        <img mat-card-image style="max-height: 400px;" src="{{BaseURL + watch.image}}" alt={{watch.name}}>
+                    <mat-card-content  *ngIf="!opened">
+                        <div class="desc">
+                            <p matline class="name">{{watch.name | uppercase}}</p>
+                            <p matline>{{watch.description}}</p>
+                            
+                            <p matline>&#x20A6;{{watch.price}}</p>
+                        </div>
+                    </mat-card-content>
+                    
+                    </div>
+                    <mat-card-actions>
+                        <button  class="button" (click)="addToCart(watch);"  mat-button fxFlex="grow"> Add to cart</button>
+                        
+                    </mat-card-actions>
+                    
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!watches" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list>    
+        
+    </div>
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+

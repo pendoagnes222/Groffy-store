@@ -1,0 +1,70 @@
+<mat-sidenav-container style="height: 80%">
+  
+    <mat-sidenav class="side-nav" #sidenav [mode]="opened === false ? 'over': 'side'" [opened]="show">
+      
+      <button mat-button class="close"  (click)="sidenav.toggle(); show = false">
+        <i style="font-size: 30px;">&times;</i>
+      </button>  
+      <app-sidenav>
+        </app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar fxLayout="row wrap" class="header" *ngIf="opened">
+        <button fxFlex="5" *ngIf="show == false"  (click)="sidenav.toggle(); show = true" class="fas fa-bars fa-lg"></button>
+        <h2  fxFlex="65" routerLink="/home">Groffy Store <i class="fas fa-crown"></i></h2>
+        
+        <a *ngIf="!loggedIn" routerLink="/login" fxFlex="15" mat-button>Login/SignUp</a>
+        <button  *ngIf="loggedIn" [matMenuTriggerFor]="menu" class="user" mat-icon-button>
+          <i class="fas fa-user"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/orders">
+           <span class="fas fa-box fa-lg">Check Orders</span> 
+          </button>
+          <button mat-menu-item>
+            <span (click)="logOut()" class="fas fa-sign-out-alt fa-lg">Logout</span>
+          </button>
+          
+        </mat-menu>
+        
+        <a fxFlex="10" mat-button style="color: white" routerLink="/cart"><app-badge></app-badge><span style="margin-left: 5px; color: white;">Cart</span></a>
+        <div fxFlex="70">
+          <input matInput type="text" [(ngModel)]="searchTerm" (keyup)="search($event)"  placeholder="Search">
+         
+        </div>  
+      </mat-toolbar>
+      
+      <mat-toolbar fxLayout="row wrap" class="header" *ngIf="!opened">
+        <button fxFlex="10" (click)="sidenav.toggle()" class="fas fa-bars fa-lg"></button> 
+        
+        <span fxLayoutAlign="center" fxFlex="50" routerLink="/home">Groffy Store <i class="fas fa-crown"></i></span>
+        
+        <a *ngIf="!loggedIn" fxFlex="10" mat-button routerLink="/login"> Login</a>
+        <button  *ngIf="loggedIn" [matMenuTriggerFor]="menu" class="user" mat-icon-button>
+          <i class="fas fa-user"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/orders">
+           <span class="fas fa-box fa-lg">Check Orders</span> 
+          </button>
+          <button mat-menu-item>
+            <span (click)="logOut()" class="fas fa-sign-out-alt fa-lg">Logout</span>
+          </button>
+          
+        </mat-menu>  
+        
+        <a fxFlex="10" mat-button style="color: white;" routerLink="/cart"><app-badge></app-badge></a>
+        <div fxFlex="100">
+          <input matInput type="text" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="Search">
+         
+        </div>  
+      </mat-toolbar>    
+        <router-outlet *ngIf="searchTerm == ''"></router-outlet>
+        <div *ngIf="searchTerm != ''">
+          <app-search-filter></app-search-filter>
+        </div>
+        <app-footer style="height: 20%"></app-footer>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

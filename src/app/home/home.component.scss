@@ -1,0 +1,74 @@
+.card {
+    background-color: white;
+    text-align: center;
+     
+    
+}
+
+.card-content {
+    text-align: center;
+    position: relative;
+    top: 25%;
+    color: black;
+    font-weight: bold;
+}
+
+
+h3 {
+    margin: 30px;
+    
+}
+
+.services {
+    margin-top: 100px;
+}
+
+
+
+.p {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+.intro {
+    animation-duration: 3s;
+    animation-name: intro;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: .5 ease-in;
+}
+
+.test {
+    margin-top: 100px;
+    animation-duration: 5s;
+    animation-name: test;
+    font-size: 20px;
+    text-align: center;
+    transition: .5 ease-in;
+}
+
+@keyframes intro {
+ from {
+     margin-left: 100%;
+    width: 300%;
+ }
+ 
+ to {
+     margin-left: 0%;
+     width: 100%;
+ }
+}
+
+@keyframes test {
+    from {
+        margin-left: 100%;
+       width: 300px;
+    }
+    
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+   }

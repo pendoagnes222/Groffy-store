@@ -1,0 +1,68 @@
+<div fxFlex fxLayout="column"
+            
+ fxLayoutAlign="center">
+    
+    <div class="ctn">
+        <h3>Clothings</h3>
+        
+         <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+            <mat-grid-tile appHighlight  *ngFor="let clothing of featuredClothing">
+                 <mat-card style="height: 80%; width: 90%">
+                    <div style="height: 70%" [routerLink]="['/productdetail', clothing._id]">
+                        <img mat-card-sm-image style="max-height: 250px;" src="{{BaseURL + clothing.image}}" alt={{clothing.name}}>
+                    </div>
+                    <mat-card-content>
+                        <p>{{clothing.name}}</p>
+                    </mat-card-content>
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!featuredClothing" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list> 
+
+       <h3><a routerLink="/women-fashion/clothings">See All</a></h3>
+        <hr>
+        <h3>Shoes</h3>
+        
+         <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+            <mat-grid-tile appHighlight  *ngFor="let shoe of featuredShoes">
+                 <mat-card style="height: 80%; width: 90%">
+                    <div style="height: 70%" [routerLink]="['/productdetail', shoe._id]">
+                        <img mat-card-sm-image style="max-height: 250px;" src="{{BaseURL + shoe.image}}" alt={{shoe.name}}>
+                    </div>
+                    <mat-card-content>
+                        <p>{{shoe.name}}</p>
+                    </mat-card-content>
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!featuredShoes" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list> 
+           
+        <h4><a routerLink="/women-fashion/shoes">See All</a></h4>
+        <hr>
+        <h3>Bags</h3>
+        
+         <mat-grid-list [rowHeight]="rowHeight" gutterSize="25px" [cols]="breakpoint">
+            <mat-grid-tile appHighlight  *ngFor="let bag of featuredBags">
+                 <mat-card style="height: 80%; width: 90%">
+                    <div style="height: 70%" [routerLink]="['/productdetail', bag._id]">
+                        <img mat-card-sm-image style="max-height: 250px;" src="{{BaseURL + bag.image}}" alt={{bag.name}}>
+                    </div>
+                    <mat-card-content>
+                        <p>{{bag.name}}</p>
+                    </mat-card-content>
+                </mat-card>
+             </mat-grid-tile>
+             <div *ngIf="!featuredBags" fxLayoutAlign="center center" fxFlex>
+                <mat-spinner color="accent"></mat-spinner>
+             </div>
+        </mat-grid-list> 
+           
+        <h4><a routerLink="/women-fashion/bags">See All</a></h4>
+    
+    </div>
+    
+</div>

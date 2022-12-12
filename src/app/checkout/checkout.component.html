@@ -1,0 +1,124 @@
+<div fxLayout="column" fxFlex>
+    <div class="ctn">
+        <p>Checkout <i class="fas fa-shopping-cart"></i></p>
+        <mat-tab-group [selectedIndex]="selectedIndex">
+            <mat-tab label="Delivery">
+               <div fxLayout="row" fxLayout.lt-md="column" fxFlex>
+                
+                <div fxFlex="40" fxFlex.lt-md="100">
+                <p>Shipment Details</p>
+                    <mat-card>
+                        <mat-list>
+                            <mat-list-item *ngFor="let item of cartItems">
+                                <img matListAvatar src="{{BaseURL + item.image}}" alt={{item.name}}>
+                                <p matLine>{{item.name}}</p>
+                                <p matLine>{{item.price}}</p>
+                            </mat-list-item>
+                        </mat-list>
+                        <span>Total: &#x20A6;{{total}}</span>
+                    
+                    </mat-card>
+                    <div *ngIf="!cartItems" fxLayoutAlign="center center" fxFlex>
+                        <mat-spinner color="accent"></mat-spinner>
+                     </div>
+                </div>
+                <div fxFlex="60" fxFlex.lt-md="100">
+                    <p>Address Details</p>
+                    <mat-card>
+                        <form noValidate>
+                        <mat-form-field>
+                            <input matInput placeholder="Name" type="text"
+                            [(ngModel)]="user.username" name="username"
+                            #username="ngModel" required>
+                            <mat-error *ngIf="username.errors?.['required']">Username is required</mat-error>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <textarea rows="6" cols="200" matInput placeholder="Your Address" type="text"
+                            [(ngModel)]="user.address" name="address"
+                            #address="ngModel" required></textarea>     
+                        </mat-form-field>
+                        
+                        </form> 
+                    
+                    </mat-card>
+                </div>
+
+               </div>
+               <div fxFlex="100" fxFlex.lt-md="100">
+               
+                    
+                    <div>
+                        <button class="button" fxFill mat-button (click)="nextTab()">Proceed To Next Step</button>
+                    </div>
+                    
+                
+            </div>   
+            </mat-tab>
+            <mat-tab label="Summary">
+                <div fxLayout="row" fxLayout.lt-md="column" fxFlex>
+                    
+                    <div fxFlex="40" fxFlex.lt-md="100">
+                        <p>Shipment Details</p>
+                        <mat-card>
+                            <mat-list>
+                                <mat-list-item *ngFor="let item of cartItems">
+                                    <img matListAvatar src={{item.image}} alt={{item.name}}>
+                                    <p matLine>{{item.name}}</p>
+                                    <p matLine>{{item.price}}</p>
+                                </mat-list-item>
+                            </mat-list>
+                            <br>
+                            <span>Total: &#x20A6;{{total}}</span>
+                    
+                        </mat-card>
+                        <div *ngIf="!cartItems" fxLayoutAlign="center center" fxFlex>
+                            <mat-spinner color="accent"></mat-spinner>
+                         </div> 
+                    </div>
+                    <div fxFlex="60" fxFlex.lt-md="100">
+                        <div>
+                            <p>Your Address</p>
+                            <mat-card>
+                                <p>
+                                    {{user.username}}
+                                </p>
+                                <p>
+                                    {{user.address}}
+                                </p>
+                            </mat-card>
+                        
+                        </div>
+                        
+                        <div>
+                        <p>Delivery Method</p>
+                        <mat-card>
+                            Door Delivery
+                        </mat-card>
+    
+                        </div>
+    
+                        <div>
+                            <p>Payment Method</p>
+                            <mat-card>
+                                <p>Cards</p>
+                            </mat-card>
+                        </div>
+                    </div>
+                    
+                </div>     
+                <div fxFlex="100" fxFlex.lt-md="100">
+                        
+                        <div>
+                            <button class="button" fxFill mat-button routerLink="/payment">Pay Now</button>
+                        </div>
+                        
+                    
+                    
+                </div>
+            </mat-tab>
+            
+        </mat-tab-group>
+    </div>
+
+</div>

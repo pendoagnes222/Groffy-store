@@ -1,0 +1,52 @@
+<div fxFlex fxLayout="row" fxLayout.lt-md="column" class="ctn">
+    <div *ngIf="items.length !=0" fxFlex="70" fxFlex.lt-md="100">
+        
+        <mat-card  *ngFor="let item of items">
+            <div fxLayout="row">
+                <img mat-card-sm-image src='{{BaseURL + item.image}}' alt="phone">
+            <mat-card-content style="margin-left: 30px;">
+                <mat-list>
+                    <mat-list-item> {{item.name}} </mat-list-item>
+                    <mat-list-item> {{item.description}} </mat-list-item>
+                    <mat-list-item> &#x20A6;{{item.price}} </mat-list-item>
+                   </mat-list>
+
+            </mat-card-content>
+            </div>
+
+            <mat-card-footer>
+                <hr class="divider">
+                <span><i class="fas fa-trash fa-lg" (click)="removeFromCart(item._id)"></i></span>
+               <div class="icons">
+                <button mat-button [disabled]="item.quantity == 1" (click)="decreaseCart(item._id, item.quantity, item.price)"><i class="fas fa-minus"></i></button>
+                <span style="margin: 2px;">{{item.quantity}}</span>
+                <button mat-button (click)="increaseCart(item._id, item.quantity, item.price)"><i class="fas fa-plus"></i></button>
+            
+               </div> 
+            </mat-card-footer>
+        </mat-card>
+            
+        </div>
+        
+            <div style="margin-bottom: 200px; margin-top: 100px; margin-left: auto; margin-right: auto;" *ngIf="items.length == 0">
+                <img src="../../assets/images/cart2.jpg" alt="empty cart">
+                <h1>Your Cart is empty</h1> <br>
+            
+                <button class="button" routerLink="/home">
+                    Shop Now <i class="fas fa-shopping-cart"></i>
+                </button>
+                
+            </div>
+            <div *ngIf="items.length !=0" fxFlex="30" fxFlex.lt-md="100">
+                <mat-card>
+                    <p style="font-size: 20px;">Total:&#x20A6;{{cartTotal}}</p>
+            
+                    <button routerLink="/checkout" class="button" mat-button>
+                        Checkout &#65284;;{{cartTotal}}
+                    </button>
+                    
+                </mat-card>
+                
+            </div>
+                      
+   </div>
