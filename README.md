@@ -1,6 +1,28 @@
-# ConFusion
+# Groffy Store
+---
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+![](/localhost%20home.PNG)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) 
+
+
+Angular CLI: 15.0.3
+
+Package Manager: npm 8.19.2
+
+OS: win32 x64
+
+
+Angular:
+...
+
+| Package            and          Version
+------------------------------------------------------
+`@angular-devkit/architect`    0.1500.3 (cli-only)
+`@angular-devkit/core`         15.0.3 (cli-only)
+`@angular-devkit/schematics`   15.0.3 (cli-only)
+`@schematics/angular  `        15.0.3 (cli-only)
+
 
 ## Development server
 
