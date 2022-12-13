@@ -8,7 +8,7 @@
                 <mat-list>
                     <mat-list-item> {{item.name}} </mat-list-item>
                     <mat-list-item> {{item.description}} </mat-list-item>
-                    <mat-list-item> &#x20A6;{{item.price}} </mat-list-item>
+                    <mat-list-item> &#65284;{{item.price}} </mat-list-item>
                    </mat-list>
 
             </mat-card-content>
@@ -39,10 +39,10 @@
             </div>
             <div *ngIf="items.length !=0" fxFlex="30" fxFlex.lt-md="100">
                 <mat-card>
-                    <p style="font-size: 20px;">Total:&#x20A6;{{cartTotal}}</p>
+                    <p style="font-size: 20px;">Total:&#65284;{{cartTotal}}</p>
             
                     <button routerLink="/checkout" class="button" mat-button>
-                        Checkout &#65284;;{{cartTotal}}
+                        Checkout &#65284;{{cartTotal}}
                     </button>
                     
                 </mat-card>
