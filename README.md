@@ -19,8 +19,11 @@ Angular:
 | Package            and          Version
 ------------------------------------------------------
 `@angular-devkit/architect`    0.1500.3 (cli-only)
+
 `@angular-devkit/core`         15.0.3 (cli-only)
+
 `@angular-devkit/schematics`   15.0.3 (cli-only)
+
 `@schematics/angular  `        15.0.3 (cli-only)
 
 
